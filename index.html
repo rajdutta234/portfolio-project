@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Dutta | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>    <header>
+        <div class="header-content">
+            <h1>Raj Dutta</h1>
+            <p>Software Developer</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">        <section id="about" class="animate-on-scroll">
+            <h2>About Me</h2>
+            <p>Hello! I'm Raj Dutta, a passionate software developer with a keen interest in creating innovative solutions. I specialize in full-stack development and enjoy turning complex problems into simple, beautiful, and intuitive solutions.</p>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                    <div class="project-info">
+                        <h3>Project 1</h3>
+                        <p>A responsive website built with HTML, CSS, and JavaScript.</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="mobile">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                    <div class="project-info">
+                        <h3>Project 2</h3>
+                        <p>A mobile app developed using React Native.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="animate-on-scroll">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">React</div>
+                <div class="skill">Node.js</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Raj Dutta. All rights reserved.</p>
+    </footer>
+
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌓</button>
+    
+    <script src="script.js"></script>
+</body>
+</html>
