@@ -1,114 +1,104 @@
-// DOM Elements
-const darkModeToggle = document.getElementById('darkModeToggle');
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-const contactForm = document.querySelector('.contact-form');
+// Initialize AOS (Animate On Scroll)
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+});
 
-// Dark Mode Functionality
-function initDarkMode() {
-    // Check for saved preference
-    const darkMode = localStorage.getItem('darkMode') === 'true';
-    if (darkMode) {
-        document.body.classList.add('dark-mode');
+// Navigation menu toggle
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-content')) {
+        navLinks.classList.remove('active');
     }
+});
 
-    // Toggle dark mode
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    });
-}
-
-// Smooth Scrolling
-function initSmoothScroll() {
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const section = document.querySelector(this.getAttribute('href'));
-            section.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-}
-
-// Project Filter Functionality
-function initProjectFilter() {
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            // Get filter value
-            const filter = button.getAttribute('data-filter');
-            
-            // Filter projects
-            projectCards.forEach(project => {
-                if (filter === 'all' || project.getAttribute('data-category') === filter) {
-                    project.style.display = 'block';
-                } else {
-                    project.style.display = 'none';
-                }
-            });
-        });
-    });
-}
-
-// Contact Form Functionality
-function initContactForm() {
-    contactForm.addEventListener('submit', async (e) => {
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
+        navLinks.classList.remove('active');
         
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
+        const target = document.querySelector(this.getAttribute('href'));        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
-        // Show sending state
-        const submitBtn = contactForm.querySelector('button');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        try {
-            // Simulate sending (replace with actual API call)
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            
-            // Show success message
-            alert('Message sent successfully!');
-            contactForm.reset();
-        } catch (error) {
-            alert('Failed to send message. Please try again.');
-        } finally {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
+        // Add smooth scrolling with a slight delay for better animation
+        setTimeout(() => {
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }, 100);
 
-// Scroll Animation
-function initScrollAnimation() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
-    function checkScroll() {
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight - 100) {
-                element.classList.add('visible');
-            }
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
         });
-    }
-    
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Check on initial load
-}
+    });
+});
 
-// Initialize all functionality
-document.addEventListener('DOMContentLoaded', () => {
-    initDarkMode();
-    initSmoothScroll();
-    initProjectFilter();
-    initContactForm();
-    initScrollAnimation();
+// Page loader
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader');
+    setTimeout(() => {
+        loader.classList.add('hide');
+    }, 1000);
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        nav.style.boxShadow = 'none';
+    }
+});
+
+// Form submission handling
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Add loading state to button
+    const submitBtn = contactForm.querySelector('.btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission (replace with actual form submission)
+    setTimeout(() => {
+        // Show success message
+        alert('Message sent successfully!');
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Restore button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }, 1500);
+});
+
+// Add hover effect to project cards
+const projectCards = document.querySelectorAll('.project-card');
+projectCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
 });

@@ -1,87 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raj Dutta | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/images.css">
 </head>
-<body>    <header>
-        <div class="header-content">
-            <h1>Raj Dutta</h1>
-            <p>Software Developer</p>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
         </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">        <section id="about" class="animate-on-scroll">
-            <h2>About Me</h2>
-            <p>Hello! I'm Raj Dutta, a passionate software developer with a keen interest in creating innovative solutions. I specialize in full-stack development and enjoy turning complex problems into simple, beautiful, and intuitive solutions.</p>
-        </section>
-
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" data-category="web">
-                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
-                    <div class="project-info">
-                        <h3>Project 1</h3>
-                        <p>A responsive website built with HTML, CSS, and JavaScript.</p>
-                    </div>
-                </div>
-                <div class="project-card" data-category="mobile">
-                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
-                    <div class="project-info">
-                        <h3>Project 2</h3>
-                        <p>A mobile app developed using React Native.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="animate-on-scroll">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill">HTML5</div>
-                <div class="skill">CSS3</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">React</div>
-                <div class="skill">Node.js</div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Raj Dutta. All rights reserved.</p>
-    </footer>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">            <div class="logo">
+                <a href="#home"><span class="logo-text">RAJ DUTTA</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>            <button class="menu-btn" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+        </div>
+    </nav>
 
-    <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌓</button>
-    
+    <!-- Hero Section -->    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">Hi, I'm <span class="highlight">Raj Dutta</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">Software Developer</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="300">Crafting elegant solutions to complex problems</p>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://github.com/rajdutta234" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/raj-dutta-a8875936a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/_raj_dutta_?igsh=MTN1NGR6MDYweTZvcA%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="#contact" class="cta-btn" data-aos="fade-up" data-aos-delay="600">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="about-content">                    <div class="about-img" data-aos="fade-right">
+                        <div class="profile-image" onclick="openLightbox()">
+                            <img src="https://i.postimg.cc/bvBH8fhk/Whats-App-Image-2025-06-16-at-12-47-28-ca791bb4.jpg" alt="Raj Dutta">
+                        </div>
+                    </div>
+                    
+                    <!-- Lightbox for profile image -->
+                    <div class="profile-lightbox" id="profileLightbox" onclick="closeLightbox()">
+                        <span class="close-lightbox">&times;</span>
+                        <img src="https://i.postimg.cc/bvBH8fhk/Whats-App-Image-2025-06-16-at-12-47-28-ca791bb4.jpg" alt="Raj Dutta">
+                    </div><div class="about-text" data-aos="fade-left">
+                    <h3>Hello! Nice to meet you</h3>
+                    <p>I'm Raj Dutta, a passionate Software Developer with a keen eye for creating innovative and efficient solutions. With expertise in both frontend and backend technologies, I specialize in building scalable applications that make a difference.</p>
+                    <p class="mt-20">My approach combines clean code practices with modern development principles, ensuring that each project not only meets but exceeds expectations. I'm particularly interested in performance optimization and user experience.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>3+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>25+</h4>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>15+</h4>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+            <div class="skills-content">
+                <div class="skill-category" data-aos="fade-up">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Backend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-node"></i>
+                            <span>Node.js</span>
+                        </div>                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>Express</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Projects</h2>            <div class="projects-grid">
+                    <!-- Smart Shop E-Commerce -->
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Smart Shop E-Commerce</h3>
+                            <p>A full-stack e-commerce platform built with React and Node.js. Features include real-time inventory management, secure payment integration, and an admin dashboard.</p>
+                            <div class="tech-stack">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>Express.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn">View Live</a>
+                                <a href="#" class="btn">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TaskMaster Pro -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>TaskMaster Pro</h3>
+                            <p>A sophisticated task management application with real-time updates, team collaboration features, and customizable workflows.</p>
+                            <div class="tech-stack">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>WebSocket</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn">View Live</a>
+                                <a href="#" class="btn">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Chat Assistant -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>AI Chat Assistant</h3>
+                            <p>An intelligent chatbot powered by machine learning, providing automated customer support and personalized responses.</p>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>TensorFlow</span>
+                                <span>Flask</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn">View Live</a>
+                                <a href="#" class="btn">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:rajdutta3456@gmail.com">rajdutta3456@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:+919674515189">+91 96745 15189</a></p>
+                        </div>
+                    </div>                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p><a href="https://goo.gl/maps/kolkata" target="_blank" rel="noopener noreferrer">Kolkata, West Bengal, India</a></p>
+                        </div>
+                    </div>
+                </div>                    <form class="contact-form" data-aos="fade-left">                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                            <label for="name">Name</label>
+                            <div class="field-highlight"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                            <label for="email">Email</label>
+                            <div class="field-highlight"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Share your thoughts..." rows="5" required></textarea>
+                            <label for="message">Message</label>
+                            <div class="field-highlight"></div>
+                        </div>
+                        <div class="submit-btn-wrapper">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Raj Dutta. All rights reserved.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/raj-dutta-a8875936a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/_raj_dutta_?igsh=MTN1NGR6MDYweTZvcA%3D%3D&utm_source=qr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-links">Instagram
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script src="js/images.js"></script>
+    <script src="js/scroll.js"></script>
 </body>
 </html>
