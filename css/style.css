@@ -387,16 +387,18 @@ nav {
 }
 
 .about-img img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     object-fit: cover;
+    display: block;
+    margin: 0 auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-img img:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -417,6 +419,8 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* Responsive styles for About section */
@@ -432,13 +436,24 @@ nav {
     }
     
     .about-img {
-        max-width: 80%;
-        margin: 0 auto;
+        max-width: 100%;
+        margin: 0 auto 1.5rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-img img {
+        width: 160px;
+        height: 160px;
+    }
+    .about-text {
+        align-items: center;
+        text-align: center;
+    }
     }
     
-    .section-title {
-        margin-bottom: 2rem;
-    }
+.section-title {
+    margin-bottom: 2rem;
 }
 
 .stats {
@@ -1080,10 +1095,12 @@ footer {
         gap: 1rem;
     }
 
-    .about-content,
-    .skills-content,
-    .contact-content {
+    .about-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+        width: 100%;
+        justify-items: center;
     }
 
     .hero h1 {

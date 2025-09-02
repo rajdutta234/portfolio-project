@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/images.css">
 </head>
 <body>
@@ -53,17 +53,18 @@
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">About Me</h2>
-            <div class="about-content">                    <div class="about-img" data-aos="fade-right">
-                        <div class="profile-image" onclick="openLightbox()">
-                            <img src="https://i.postimg.cc/bvBH8fhk/Whats-App-Image-2025-06-16-at-12-47-28-ca791bb4.jpg" alt="Raj Dutta">
-                        </div>
-                    </div>
-                    
-                    <!-- Lightbox for profile image -->
-                    <div class="profile-lightbox" id="profileLightbox" onclick="closeLightbox()">
-                        <span class="close-lightbox">&times;</span>
+            <div class="about-content">
+                <div class="about-img" data-aos="fade-right">
+                    <div class="profile-image" onclick="openLightbox()">
                         <img src="https://i.postimg.cc/bvBH8fhk/Whats-App-Image-2025-06-16-at-12-47-28-ca791bb4.jpg" alt="Raj Dutta">
-                    </div><div class="about-text" data-aos="fade-left">
+                    </div>
+                </div>
+                <!-- Lightbox for profile image -->
+                <div class="profile-lightbox" id="profileLightbox" onclick="closeLightbox()">
+                    <span class="close-lightbox">&times;</span>
+                    <img src="https://i.postimg.cc/bvBH8fhk/Whats-App-Image-2025-06-16-at-12-47-28-ca791bb4.jpg" alt="Raj Dutta">
+                </div>
+                <div class="about-text" data-aos="fade-left">
                     <h3>Hello! Nice to meet you</h3>
                     <p>I'm Raj Dutta, a passionate Software Developer with a keen eye for creating innovative and efficient solutions. With expertise in both frontend and backend technologies, I specialize in building scalable applications that make a difference.</p>
                     <p class="mt-20">My approach combines clean code practices with modern development principles, ensuring that each project not only meets but exceeds expectations. I'm particularly interested in performance optimization and user experience.</p>
@@ -263,7 +264,7 @@
             </div>
         </div>
     </footer>    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/images.js"></script>
     <script src="js/scroll.js"></script>
 </body>
