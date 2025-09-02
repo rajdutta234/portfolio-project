@@ -5,7 +5,6 @@
     --background-color: #ffffff;
     --text-color: #333333;
     --transition: all 0.3s ease;
-}
 
 * {
     margin: 0;
@@ -379,6 +378,9 @@ nav {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .about-content:hover {
@@ -387,18 +389,16 @@ nav {
 }
 
 .about-img img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     object-fit: cover;
-    display: block;
-    margin: 0 auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-img img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -413,54 +413,52 @@ nav {
     line-height: 1.8;
     color: var(--text-color);
     margin-bottom: 1.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .about-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 /* Responsive styles for About section */
-@media (max-width: 768px) {    .about {
+@media (max-width: 768px) {
+    .about {
         padding: 1rem;
     }
-    
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 1.5rem;
-        width: 95%;
+        padding: 1.5rem 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
     }
-    
     .about-img {
         max-width: 100%;
         margin: 0 auto 1.5rem auto;
         display: flex;
         justify-content: center;
         align-items: center;
+        box-sizing: border-box;
     }
     .about-img img {
-        width: 160px;
-        height: 160px;
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
     }
     .about-text {
         align-items: center;
         text-align: center;
     }
-    .about-text p {
-        font-size: 1.1rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    }
-    
+}
+
 .section-title {
     margin-bottom: 2rem;
 }
@@ -470,10 +468,15 @@ nav {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .stat-item {
     text-align: center;
+    padding: 0.5rem 0.2rem;
+    word-break: break-word;
 }
 
 .stat-item h4 {
@@ -908,6 +911,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        justify-items: center;
+    }
+    .stat-item {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -921,6 +934,24 @@ footer {
     .footer-links {
         justify-content: center;
     }
+
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1.2rem 0.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+    }
+    .contact-form {
+        padding: 1.2rem 0.5rem;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+    }
+}
 }
 
 .mt-20 {
@@ -1129,6 +1160,15 @@ footer {
     .section-title {
         font-size: 1.8rem;
         margin-bottom: 30px;
+    }
+
+    .about-content,
+    .contact-content {
+        padding: 1rem 0.2rem;
+        gap: 1rem;
+    }
+    .contact-form {
+        padding: 1rem 0.2rem;
     }
 }
 
