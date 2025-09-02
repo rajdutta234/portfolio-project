@@ -12,12 +12,15 @@ const navLinks = document.querySelector('.nav-links');
 menuBtn.addEventListener('click', () => {
     menuBtn.classList.toggle('active');
     navLinks.classList.toggle('active');
+    document.body.classList.toggle('menu-open', navLinks.classList.contains('active'));
 });
 
 // Close menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav-content')) {
         navLinks.classList.remove('active');
+        menuBtn.classList.remove('active');
+        document.body.classList.remove('menu-open');
     }
 });
 
@@ -26,23 +29,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         navLinks.classList.remove('active');
-        
-        const target = document.querySelector(this.getAttribute('href'));        const headerOffset = 100;
+        menuBtn.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        const target = document.querySelector(this.getAttribute('href'));
+        const headerOffset = 100;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-        // Add smooth scrolling with a slight delay for better animation
         setTimeout(() => {
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth'
             });
         }, 100);
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
     });
 });
 
