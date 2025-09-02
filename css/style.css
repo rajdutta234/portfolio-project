@@ -413,6 +413,9 @@ nav {
     line-height: 1.8;
     color: var(--text-color);
     margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-text {
@@ -449,6 +452,12 @@ nav {
     .about-text {
         align-items: center;
         text-align: center;
+    }
+    .about-text p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
     }
     
